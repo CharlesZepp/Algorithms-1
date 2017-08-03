@@ -63,26 +63,6 @@ correspond to empty space through which water might
 flow, so that a system that percolates lets water fill open sites, 
 flowing from top to bottom.)
 
-<center>
-<blockquote>
-<img src = "percolates-yes.png" height = 175 align = "top" alt = "percolates">
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-<img src = "percolates-no.png" height = 175 align = "top" alt = "does not percolate">
-</blockquote>
-</center>
-
-<!--
-<p>
-<center>
-<img src = "percolates.png" alt = "Percolates">
-</center>
--->
-
-
 <p><b>The problem.</b>
 In a famous scientific problem, researchers are interested in the
 following question: if sites are independently set to be open with
