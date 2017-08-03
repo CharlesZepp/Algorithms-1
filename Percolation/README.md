@@ -1,7 +1,3 @@
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
-<html><head><title>Programming Assignment 1: Percolation</title></head><body>
-
 <h2>Programming Assignment 1: Percolation</h2>
 
 <p>
@@ -98,16 +94,6 @@ The plots below show the site vacancy probability <em>p</em> versus the percolat
 probability for 20-by-20 random grid (left) and 100-by-100 random grid (right).
 <p>
 
-<center>
-<img src = "percolation-threshold20.png" height = 175 alt = "Percolation threshold for 20-by-20 grid">
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;
-<img src = "percolation-threshold100.png" height = 175 alt = "Percolation threshold for 100-by-100 grid">
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;
-</center>
-
 <p>
 When <em>n</em> is sufficiently large, there is a <em>threshold</em> value <em>p</em>* such
 that when <em>p</em> &lt; <em>p</em>* a random <em>n</em>-by-<em>n</em> grid 
@@ -150,85 +136,6 @@ The constructor should take time proportional to <em>n</em><sup>2</sup>; all met
 take constant time plus a constant number of calls to the union&ndash;find methods 
 <tt>union()</tt>, <tt>find()</tt>, <tt>connected()</tt>, and <tt>count()</tt>.
 
-
-<p><b>Monte Carlo simulation.</b>
-To estimate the percolation threshold, consider the following computational experiment:
-<ul>
-
-<p><li> Initialize all sites to be blocked.
-
-<p><li> Repeat the following until the system percolates:
-
-<ul>
-<p><li> Choose a site uniformly at random among all blocked sites.
-<p><li> Open the site.
-</ul>
-
-<p><li> The fraction of sites that are opened when the system percolates
-provides an estimate of the percolation threshold.
-</ul>
-
-
-<p>
-For example, if sites are opened in a 20-by-20 lattice according to the snapshots below,
-then our estimate of the percolation threshold is 204/400 = 0.51 because the system
-percolates when the 204th site is opened.
-
-<p>
-<center>
-<TABLE BORDER = 0 CELLPADDING =2 CELLSPACING = 0>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<td><IMG SRC="percolation-50.png" height = 175 alt = "Percolation 50 sites">
-<br><center><font size = -1><em>50 open sites</em></font></center>
-<td><IMG SRC="percolation-100.png" height = 175 alt = "Percolation 100 sites">
-<br><center><font size = -1><em>100 open sites</em></font></center>
-<td><IMG SRC="percolation-150.png" height = 175 alt = "Percolation 150 sites">
-<br><center><font size = -1><em>150 open sites</em></font></center>
-<td><IMG SRC="percolation-204.png" height = 175 alt = "Percolation 204 sites">
-<br><center><font size = -1><em>204 open sites</em></font></center>
-<!--
-<td><IMG SRC="percolation-250.png" height = 175 alt = "Percolation 250 sites">
-<br><center><font size = -1><em>250 open sites</em></font></center>
--->
-</tr>
-</table>
-</center>
-
-<p>
-By repeating this computation experiment <em>T</em> times and averaging the results,
-we obtain a more accurate estimate of the percolation threshold.
-Let <em>x<sub>t</sub></em> be the fraction of open sites in computational experiment <em>t</em>.
-The sample mean \(\overline x\) provides an estimate of the percolation threshold;
-the sample standard deviation <em>s</em>; measures the sharpness of the threshold.
-
-
-<p>
-
-<blockquote>
-<!-- <img src = "percolation-stats.png" alt = "Estimating the sample mean and variance"> -->
-
-\[
-\overline x  = \frac{x_1 \, + \, x_2 \, + \, \cdots \, + \, x_{T}}{T},
-\quad s^2  = \frac{(x_1 - \overline x )^2 \, + \, (x_2 - \overline x )^2 \,+\, \cdots \,+\, (x_{T} - \overline x )^2}{T-1}
-\]
-
-</blockquote>
-
-
-
-Assuming <em>T</em> is sufficiently large (say, at least 30), the following
-provides a 95% confidence interval for the percolation threshold:
-
-<p>
-<blockquote>
-<!-- <img src = "percolation-confidence.png" alt = "95% confidence interval for percolation threshold"> -->
-
-\[ 
-\left [ \; \overline x  -  \frac {1.96 s}{\sqrt{T}}, \;\;
-           \overline x  +  \frac {1.96 s}{\sqrt{T}} \; \right]
-\]
-</blockquote>
 
 <p>
 To perform a series of computational experiments, create a data type <tt>PercolationStats</tt>
