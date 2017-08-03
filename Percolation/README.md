@@ -116,6 +116,36 @@ The constructor should take time proportional to <em>n</em><sup>2</sup>; all met
 take constant time plus a constant number of calls to the union&ndash;find methods 
 <tt>union()</tt>, <tt>find()</tt>, <tt>connected()</tt>, and <tt>count()</tt>.
 
+<p><b>Monte Carlo simulation.</b>
+To estimate the percolation threshold, consider the following computational experiment:
+<ul>
+
+<p><li> Initialize all sites to be blocked.
+
+<p><li> Repeat the following until the system percolates:
+
+<ul>
+<p><li> Choose a site uniformly at random among all blocked sites.
+<p><li> Open the site.
+</ul>
+
+<p><li> The fraction of sites that are opened when the system percolates
+provides an estimate of the percolation threshold.
+</ul>
+
+<p>
+For example, if sites are opened in a 20-by-20 lattice according to the snapshots below,
+then our estimate of the percolation threshold is 204/400 = 0.51 because the system
+percolates when the 204th site is opened.
+<p>
+
+<p>
+By repeating this computation experiment <em>T</em> times and averaging the results,
+we obtain a more accurate estimate of the percolation threshold.
+Let <em>x<sub>t</sub></em> be the fraction of open sites in computational experiment <em>t</em>.
+The sample mean \(\overline x\) provides an estimate of the percolation threshold;
+the sample standard deviation <em>s</em>; measures the sharpness of the threshold.
+<p>
 
 <p>
 To perform a series of computational experiments, create a data type <tt>PercolationStats</tt>
