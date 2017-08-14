@@ -15,43 +15,42 @@ public class PercolationStats {
 	 * @param trials
 	 * @throws 
 	 */
-	public PercolationStats(int n, int trials)
-	{	
-		if (n <= 0 || trials <= 0)
-		{
+	public PercolationStats(int n, int trials){
+
+		if (n <= 0 || trials <= 0){
 			throw new IllegalArgumentException("Grid size and number of trials must be greater than '0'");
 		}
-		else
-		{
+		else{
+
 			this.trials = trials;
 			results = new double[trials];
 			
-			for (int i = 0; i < results.length; i++)
-			{
+			for (int i = 0; i < results.length; i++){
+
 				Percolation p = new Percolation(n);
 				int x = 0;
-				while (!p.percolates())
-				{
+				while (!p.percolates()){
+
 				    int row = StdRandom.uniform(1, n+1);
 				    int col = StdRandom.uniform(1, n+1);
 				    
-				    if (!p.isOpen(row, col))
-				    {
+				    if (!p.isOpen(row, col)){
+
 				        p.open(row, col);
 				        x++;
 				    }
 				}
 				results[i] = (double) x /(double) (n*n); //result
-			}
-		}	
+			}//for
+		}//else	
 	}
 	
 	/**
 	 * sample mean of percolation threshold
 	 * @return
 	 */
-	public double mean()
-	{
+	public double mean(){
+
 		return StdStats.mean(results);
 	}
 	
@@ -59,8 +58,8 @@ public class PercolationStats {
 	 * sample standard deviation of percolation threshold
 	 * @return
 	 */
-	public double stddev()
-	{
+	public double stddev(){
+
 		return StdStats.stddev(results);
 	}
 	
@@ -68,8 +67,8 @@ public class PercolationStats {
 	 * low  endpoint of 95% confidence interval
 	 * @return
 	 */
-	public double confidenceLo()
-	{
+	public double confidenceLo(){
+
 		return mean() - ((1.96*stddev())/Math.sqrt(trials));
 	}
 	
@@ -77,8 +76,8 @@ public class PercolationStats {
 	 * high endpoint of 95% confidence interval
 	 * @return
 	 */
-	public double confidenceHi()
-	{
+	public double confidenceHi(){
+
 		return mean() + ((1.96*stddev())/Math.sqrt(trials));
 	}
 	
@@ -86,8 +85,8 @@ public class PercolationStats {
 	 * MAIN (test client)
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args){
+		
 		int n = Integer.parseInt(args[0]);
 		int trials = Integer.parseInt(args[1]);
 		

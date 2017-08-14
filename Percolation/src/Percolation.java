@@ -18,14 +18,12 @@ public class Percolation {
 	 * @param n
 	 * @throws IllegalArgumentException
 	 */
-	public Percolation(int n)
-	{
-		if (n <= 0)
-		{
+	public Percolation(int n){
+
+		if (n <= 0){
 			throw new IllegalArgumentException("n must be greater than zero");
 		}
-		else
-		{
+		else{
 		    this.n = n;
             this.vT = 0;
             this.vB = n*n+1;
@@ -41,44 +39,51 @@ public class Percolation {
 	 * @param row
 	 * @param col
 	 */
-	public void open(int row, int col)
-	{
+	public void open(int row, int col){
+
 	    validate(row, col);
 	    
 	    int index = siteIndex(row, col);
 	    // open site
 	    site[index] = true;
 	    
-	    if (row == 1)//top row
-        { 
+	    //top row
+	    if (row == 1){ 
+
             grid.union(index, vT); 
             backwash.union(index, vT);
         }
-        if (row == n)//bottom row
-        {
+
+        //bottom row
+        if (row == n){
+
             grid.union(index, vB);
         }
         
-        if (row > 1 && isOpen(row-1, col))//left of site
-        {
+        //left of site
+        if (row > 1 && isOpen(row-1, col)){
+
             grid.union(index, siteIndex(row-1, col));
             backwash.union(index, siteIndex(row-1, col));
         }
         
-        if (row < n && isOpen(row+1, col))//right of
-        {
+        //right of
+        if (row < n && isOpen(row+1, col)){
+
             grid.union(index, siteIndex(row+1, col));
             backwash.union(index, siteIndex(row+1, col));
         }
         
-        if (col > 1 && isOpen(row, col-1))//above 
-        {
+        //above 
+        if (col > 1 && isOpen(row, col-1)){
+
             grid.union(index, siteIndex(row, col-1));
             backwash.union(index, siteIndex(row, col-1));
         }
         
-        if (col < n && isOpen(row, col+1))//below
-        {
+        //below
+        if (col < n && isOpen(row, col+1)){
+
             grid.union(index, siteIndex(row, col+1));
             backwash.union(index, siteIndex(row, col+1));
         }
@@ -90,8 +95,8 @@ public class Percolation {
 	 * @param col
 	 * @return
 	 */
-	public boolean isOpen(int row, int col)
-	{
+	public boolean isOpen(int row, int col){
+
 		validate(row, col);
 		return site[siteIndex(row, col)];
 	}
@@ -103,8 +108,8 @@ public class Percolation {
 	 * @param col
 	 * @return
 	 */
-	public boolean isFull(int row, int col)
-	{
+	public boolean isFull(int row, int col){
+
 		validate(row, col);
 		return  site[siteIndex(row, col)] && backwash.connected(vT, siteIndex(row, col));
 	}
@@ -113,13 +118,12 @@ public class Percolation {
 	 * Returns the number of open sites
 	 * @return
 	 */
-	public int numberOfOpenSites()
-	{
+	public int numberOfOpenSites(){
+
 	    int open = 0;
-	    for (int i = 0; i < site.length; i++)
-	    {
-	        if (site[i])
-	        {
+	    for (int i = 0; i < site.length; i++){
+
+	        if (site[i]){
 	            open++;
 	        }
 	    }
@@ -131,8 +135,8 @@ public class Percolation {
 	 * Meaning that the grid percolates
 	 * @return
 	 */
-	public boolean percolates()
-	{
+	public boolean percolates(){
+
 		return grid.connected(vT, vB);
 	}
 	
@@ -144,8 +148,8 @@ public class Percolation {
 	 * @param col
 	 * @return
 	 */
-	private int siteIndex(int row, int col)
-	{
+	private int siteIndex(int row, int col){
+
 		validate(row, col);
 		return ((n * (row-1) + col)-1);
 	}
@@ -156,9 +160,10 @@ public class Percolation {
 	 * @param col
 	 * @throws IllegalArgumentException
 	 */
-	private void validate(int row, int col)
-	{
-		if ((row-1 < 0 || row-1 > n) || (col-1 < 0 || col-1 > n))
+	private void validate(int row, int col){
+
+		if ((row-1 < 0 || row-1 > n) || (col-1 < 0 || col-1 > n)){
 			throw new IllegalArgumentException("Out of bounds");
+		}
 	}
 }
