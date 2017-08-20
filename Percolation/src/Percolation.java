@@ -1,7 +1,10 @@
+//provided API
+import WeightedQuickUnionUF;
+
 /**
- * 
- * @author charles
- *
+ * Algorithms
+ * Programming Assignment 1: Percolation
+ * @author charl
  */
 
 public class Percolation {

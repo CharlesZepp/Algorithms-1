@@ -1,12 +1,15 @@
 import java.util.Iterator;
-import edu.princeton.cs.algs4.StdRandom;
 import java.util.NoSuchElementException;
+
+//provide API
+import StdRandom;
 
 /**
  * Algorithms
  * Programming Assignment 2: Deques and Randomized Queues
  * @author charl
  */
+
 public class RandomizedQueue<Item> implements Iterable<Item> {
     
     private Item[] queue;

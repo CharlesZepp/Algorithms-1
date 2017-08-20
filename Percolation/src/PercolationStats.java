@@ -1,7 +1,11 @@
+//provided API
+import StdRandom;
+import StdStats
+
 /**
- * 
+ * Algorithms
+ * Programming Assignment 1: Percolation
  * @author charl
- *
  */
 
 public class PercolationStats {

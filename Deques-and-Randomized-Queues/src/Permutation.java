@@ -1,5 +1,12 @@
-import edu.princeton.cs.algs4.StdIn;
-import edu.princeton.cs.algs4.StdOut;
+//provided API
+import StdIn;
+import StdOut;
+
+/**
+ * Algorithms
+ * Programming Assignment 2: Deques and Randomized Queues
+ * @author charl
+ */
 
 public class Permutation {
 

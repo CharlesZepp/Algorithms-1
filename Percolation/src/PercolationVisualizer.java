@@ -14,12 +14,14 @@
  *  open sites (that aren't full) in white, and blocked sites in black,
  *  with with site (1, 1) in the upper left-hand corner.
  *
+ * Provided by Instructor
  ******************************************************************************/
 
 import java.awt.Font;
 
-import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.StdDraw;
+//provided API
+import In;
+import StdDraw;
 
 public class PercolationVisualizer {
 
