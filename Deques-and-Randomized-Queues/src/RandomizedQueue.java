@@ -144,26 +144,4 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
                 throw new UnsupportedOperationException();
             }
         }
-    
-    /**
-     * CLIENT
-     * @param args
-     */
-    public static void main(String[] args) {
-        
-        RandomizedQueue<Integer> random = new RandomizedQueue<>();
-        random.enqueue(4);
-        random.enqueue(3);
-        random.enqueue(5);
-        random.enqueue(7);
-        random.enqueue(89);
-       /*
-        System.out.println(random.dequeue());
-        System.out.println(random.sample());
-        System.out.println(random.dequeue());
-        */
-        for(Integer s: random) {
-            System.out.println(s);
-        }
-    }
 }

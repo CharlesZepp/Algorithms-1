@@ -185,26 +185,4 @@ public class Deque<Item> implements Iterable<Item> {
             throw new IllegalArgumentException();
         }
     }
-    
-    public static void main(String[] args) {
-        
-        Deque<Integer> deck = new Deque<Integer>();
-
-        deck.addFirst(4);
-        deck.addFirst(3);
-        deck.addFirst(5);
-        deck.addFirst(1);
-        deck.addLast(9);
-        deck.addLast(67);
-        deck.addFirst(4);
-        
-        
-       for (Integer s: deck){
-           System.out.println(s);
-       }
-       System.out.println("Size: " + deck.size());
-       System.out.println("First: "+deck.removeFirst()+ "\nLast: " + deck.removeLast());
-
-    }
-
 }
